@@ -1,38 +1,97 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-header,
+.App-login,
+.App-footer {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: ghostwhite;
 }
 
-.App-link {
-  color: #61dafb;
+.App-login {
+  flex-grow: 3;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%; */
+/* background-color: greenyellow;
+} */
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 1.875rem;
+}
+
+label {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #474747;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #00adbb;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgba(0, 0, 0, 50%);
+  margin-bottom: 1rem;
+  width: 500px;
+  outline: none;
+}
+
+.error {
+  box-sizing: "border-box";
+  background-color: "#f8d7da";
+  padding: "10px";
+  border-radius: "5px";
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 30px;
+  border: 2px solid #00adbb;
+  background: white;
+  color: #474747;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  margin-bottom: 0.5rem;
+}
+.btnLogin:hover {
+  background: #00adbb;
+  color: #fff;
+}
+
+a {
+  color: #474747;
+  font-size: 1rem;
+  font-weight: 300;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  outline: none;
+  text-decoration: none;
+}
+a:hover {
+  color: #00adbb;
+}
+
+.forgotPassword {
+  text-align: center;
 }
