@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -22,7 +23,7 @@ class Login extends Component {
       body: JSON.stringify(user),
     })
       //   .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => console.log(data));
     //   .then((data) => this.setState({ user: data }));
   };
 
@@ -36,7 +37,7 @@ class Login extends Component {
 
   render() {
     return (
-      <>
+      <div className='form-container'>
         <h1>Log in to your account</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -70,12 +71,12 @@ class Login extends Component {
           </div>
 
           <div className="forgotPassword">
-            <a href="">forgot password?</a>
+            <Link to="forget-password">forgot password?</Link>
             <span> | </span>
-            <a href="">create an account</a>
+            <Link to="register">create an account</Link>
           </div>
         </form>
-      </>
+      </div>
     );
   }
 }

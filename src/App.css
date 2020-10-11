@@ -18,19 +18,24 @@
   background-color: white;
 }
 
-/* .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%; */
-/* background-color: greenyellow;
-} */
+.form-container {
+  width: 500px;
+}
 
 h1 {
   font-size: 1.125rem;
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1.875rem;
+}
+
+.form-buttom-text, .form-buttom-text a {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #212529;
+}
+.form-buttom-text a {
+  color: #007bff;
 }
 
 label {
@@ -42,16 +47,23 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input {
+input,
+select {
   box-sizing: border-box;
   width: 100%;
   border: 1px solid #00adbb;
   border-radius: 5px;
   padding: 10px;
-  color: rgba(0, 0, 0, 50%);
+  color: rgba(0, 0, 0, 60%);
   margin-bottom: 1rem;
-  width: 500px;
+  width: 100%;
   outline: none;
+}
+
+.select-input {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 60%);
 }
 
 .error {
