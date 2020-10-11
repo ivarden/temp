@@ -30,14 +30,20 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleRequest({
-      email: e.target.email.value,
-      password: e.target.password.value,
+      email: this.state.email,
+      password: this.state.password,
     });
+  };
+
+  onChangeHandle = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value });
   };
 
   render() {
     return (
-      <div className='form-container'>
+      <div className="form-container">
         <h1>Log in to your account</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -45,9 +51,10 @@ class Login extends Component {
             <div>
               <input
                 type="email"
+                name="email"
                 id="email"
                 value={this.state.email}
-                onChange={(e) => this.setState({ email: e.target.value })}
+                onChange={this.onChangeHandle}
               ></input>
             </div>
           </div>
@@ -57,9 +64,10 @@ class Login extends Component {
             <div>
               <input
                 type="password"
+                name="password"
                 id="password"
                 value={this.state.password}
-                onChange={(e) => this.setState({ password: e.target.value })}
+                onChange={this.onChangeHandle}
               ></input>
             </div>
           </div>
