@@ -1,30 +1,42 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+// import Booking from "./Booking";
 
 class Login extends Component {
   state = {
     user: "",
-    // city: [],
     email: "",
-    // emailError: false,
     password: "",
+    response: null,
   };
 
-  handleRequest = (user) => {
-    fetch("https://api.saluderia.com/login", {
-      method: "POST",
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "same-origin",
+  sendHttpRequest = (method, url, data) => {
+    return axios({
+      url: url,
+      data: data,
+      method: method,
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(user),
+      withCredentials: true,
+      credentials: "same-origin",
     })
-      //   .then((response) => response.json())
-      .then((data) => console.log(data));
-    //   .then((data) => this.setState({ user: data }));
+      .then((response) => response)
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  handleRequest = (data) => {
+    this.sendHttpRequest("POST", "/login", data).then((response) => {
+      this.setState({ response: response }, () => {
+        console.log(this.state.response);
+      });
+    });
+    this.setState({ email: "", password: "" });
   };
 
   handleSubmit = (e) => {

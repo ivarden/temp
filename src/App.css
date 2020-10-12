@@ -80,6 +80,7 @@ select {
   border: 2px solid #00adbb;
   background: white;
   color: #474747;
+  outline: none;
   text-transform: uppercase;
   font-size: 1.25rem;
   -webkit-transition: all ease-in-out 0.2s;
@@ -89,6 +90,7 @@ select {
 .btnLogin:hover {
   background: #00adbb;
   color: #fff;
+  outline: none;
 }
 
 a {
