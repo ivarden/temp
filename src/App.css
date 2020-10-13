@@ -18,9 +18,15 @@
   background-color: white;
 }
 
-.form-container {
-  width: 500px;
+.container {
+  width: 60%;
+  max-width: 500px;
 }
+.form-container {
+  width: 100%;
+}
+
+/* @media only screen and (max-width: 600px) {} */
 
 h1 {
   font-size: 1.125rem;
@@ -29,7 +35,8 @@ h1 {
   margin-bottom: 1.875rem;
 }
 
-.form-buttom-text, .form-buttom-text a {
+.form-buttom-text,
+.form-buttom-text a {
   font-size: 1.25rem;
   font-weight: 300;
   color: #212529;
@@ -56,7 +63,6 @@ select {
   padding: 10px;
   color: rgba(0, 0, 0, 60%);
   margin-bottom: 1rem;
-  width: 100%;
   outline: none;
 }
 
