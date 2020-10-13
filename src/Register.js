@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Register extends Component {
   state = {
@@ -11,30 +12,40 @@ class Register extends Component {
     citys: ["Vancouver", "Burnaby", "Richmond", "Surrey"],
   };
 
-  handleRequest = (user) => {
-    fetch("https://api.saluderia.com/login", {
-      method: "PUT",
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "same-origin",
+  sendHttpRequest = (method, url, data) => {
+    return axios({
+      url: url,
+      data: data,
+      method: method,
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(user),
+      withCredentials: true,
+      credentials: "same-origin",
     })
-      //   .then((response) => response.json())
-      .then((data) => console.log(data));
-    //   .then((data) => this.setState({ user: data }));
+      .then((response) => response)
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  handleRequest = (data) => {
+    this.sendHttpRequest("PUT", "/user", data).then((response) => {
+      this.setState({ response: response }, () => {
+        console.log(this.state.response);
+      });
+    });
+    this.setState({ name: "", email: "", password: "", city: "" });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleRequest({
-      name: e.target.name.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
-      city: e.target.city.value,
+      email: this.state.email,
+      password: this.state.password,
+      name: this.state.name,
+      recaptcha_response: ""
     });
   };
 

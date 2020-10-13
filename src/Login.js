@@ -72,7 +72,7 @@ class Login extends Component {
           </div>
 
           <div>
-            <label htmlFor="email">Password</label>
+            <label htmlFor="password">Password</label>
             <div>
               <input
                 type="password"
